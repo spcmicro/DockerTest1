@@ -1,0 +1,12 @@
+docker run \
+	-e DISPLAY=$DISPLAY \
+	--user root \
+	--env LD_LIBRARY_PATH=/opt/vc/lib \
+	-v /tmp/.X11-unix:/tmp/.X11-unix:rw \
+	-v /opt/vc:/opt/vc \
+	--device /dev/vchiq \
+	--net=host \
+	--mount type=bind,source=/media/aimpi,target=/media/aimpi,bind-propagation=shared \
+	--privileged=true \
+	-it \
+	--rm test1
