@@ -20,7 +20,7 @@ RUN python3 -m pip install pandastable
 RUN python3 -m pip install Pillow
 RUN python3 -m pip install pybind11
 RUN python3 -m pip install scipy
-RUN python3 -m pip install sklearn
+RUN python3 -m pip install scikit-learn
 RUN python3 -m pip install cycler
 RUN python3 -m pip install future
 RUN python3 -m pip install joblib
