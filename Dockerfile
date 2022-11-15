@@ -48,13 +48,23 @@ RUN groupadd -r aimusers && useradd -r -g aimusers aimpi
 RUN usermod -aG video aimpi
 
 RUN mkdir -p /aimpi/local-aim-storage
-RUN mkdir -p AIM-Lite/settings/factory
-RUN mkdir -p AIM-Lite/settings/software
+RUN mkdir -p settings/factory
+RUN mkdir -p settings/software
+RUN mkdir -p settings/defaults
+RUN mkdir -p help
+RUN mkdir -p icons
+RUN mkdir -p testplans
+RUN mkdir migrations
 
-COPY . .
-COPY AIM-Lite/settings/AIM_MasterConfig.ini AIM-Lite/settings/AIM_Config.ini
-COPY AIM-Lite/database/AIM_Master.db AIM-Lite/database/default.db
-COPY AIM-Lite/settings/AIM_factorySettings.ini AIM-Lite/settings/factory/AIM_factorySettings.ini
+COPY *.py ./
+COPY AIM-Lite/*.py ./
+COPY AIM-Lite/settings/*.json ./
+COPY AIM-Lite/migrations ./migrations
+COPY AIM-Lite/icons ./icons
+COPY AIM-Lite/help ./help
+COPY AIM-Lite/*.png ./
+COPY AIM-Lite/*.sh ./
+COPY AIM-Lite/defaults/*.* settings/defaults/
 
 USER aimpi
 # RUN xhost +
