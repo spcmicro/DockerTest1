@@ -48,9 +48,7 @@ RUN groupadd -r aimusers && useradd -r -g aimusers aimpi
 RUN usermod -aG video aimpi
 
 RUN mkdir -p /aimpi/local-aim-storage
-RUN mkdir -p settings/factory
-RUN mkdir -p settings/software
-RUN mkdir -p settings/defaults
+RUN mkdir -p defaults
 RUN mkdir -p help
 RUN mkdir -p icons
 RUN mkdir -p testplans
@@ -58,13 +56,12 @@ RUN mkdir migrations
 
 COPY *.py ./
 COPY AIM-Lite/*.py ./
-COPY AIM-Lite/settings/*.json ./
 COPY AIM-Lite/migrations ./migrations
 COPY AIM-Lite/icons ./icons
 COPY AIM-Lite/help ./help
 COPY AIM-Lite/*.png ./
 COPY AIM-Lite/*.sh ./
-COPY AIM-Lite/defaults/*.* settings/defaults/
+COPY AIM-Lite/defaults/*.* defaults/
 
 USER aimpi
 # RUN xhost +
